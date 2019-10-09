@@ -9,10 +9,7 @@ import Entidad.Sistema;
 import Entidad.Usuario;
 import java.util.ArrayList;
 
-/**
- *
- * @author Estudiante
- */
+
 public class FramePrincipal extends javax.swing.JFrame {
     
     private Registro registro = new Registro();
@@ -156,9 +153,9 @@ public class FramePrincipal extends javax.swing.JFrame {
     public void inicializacion(){
         ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
         
-        Usuario a=new Usuario();
-        Usuario b=new Usuario();
-        Usuario c=new Usuario();
+        Usuario a = new Usuario();
+        Usuario b = new Usuario();
+        Usuario c = new Usuario();
         
         a.setNombre("juan");
         a.setPassword("1234");

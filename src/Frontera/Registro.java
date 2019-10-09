@@ -5,10 +5,14 @@
  */
 package Frontera;
 
-/**
- *
- * @author Estudiante
- */
+import Control.RegistrarUsuario;
+import Entidad.Usuario;
+
+
+
+
+
+
 public class Registro extends javax.swing.JPanel {
 
     /**
@@ -33,7 +37,7 @@ public class Registro extends javax.swing.JPanel {
         nombreTF = new javax.swing.JTextField();
         contraseniaTF = new javax.swing.JTextField();
         validarContraseniaTF = new javax.swing.JTextField();
-        aceptarBR = new javax.swing.JButton();
+        registrarB = new javax.swing.JButton();
 
         jLabel1.setText("Nombre");
 
@@ -47,10 +51,10 @@ public class Registro extends javax.swing.JPanel {
             }
         });
 
-        aceptarBR.setText("Aceptar");
-        aceptarBR.addActionListener(new java.awt.event.ActionListener() {
+        registrarB.setText("Registrar");
+        registrarB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                aceptarBRActionPerformed(evt);
+                registrarBActionPerformed(evt);
             }
         });
 
@@ -60,19 +64,24 @@ public class Registro extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(aceptarBR)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(registrarB)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3))
-                        .addGap(36, 36, 36)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                        .addComponent(validarContraseniaTF, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(88, 88, 88))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(nombreTF)
-                            .addComponent(contraseniaTF)
-                            .addComponent(validarContraseniaTF, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE))))
-                .addContainerGap(29, Short.MAX_VALUE))
+                            .addComponent(contraseniaTF, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
+                            .addComponent(nombreTF))))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -81,17 +90,17 @@ public class Registro extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(nombreTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(contraseniaTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(validarContraseniaTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addComponent(aceptarBR)
-                .addContainerGap(26, Short.MAX_VALUE))
+                    .addComponent(contraseniaTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(validarContraseniaTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(registrarB)
+                .addContainerGap(58, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -99,18 +108,27 @@ public class Registro extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_nombreTFActionPerformed
 
-    private void aceptarBRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarBRActionPerformed
+    private void registrarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarBActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_aceptarBRActionPerformed
+        Usuario usuario = new Usuario();
+        usuario.setNombre(nombreTF.getText());
+        usuario.setPassword(contraseniaTF.getText());
+        
+        RegistrarUsuario registrar = new RegistrarUsuario();
+        
+        System.out.println("***************");
+        String resultado = registrar.registrar(usuario, validarContraseniaTF.getText());
+        System.out.println(resultado);
+    }//GEN-LAST:event_registrarBActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton aceptarBR;
     private javax.swing.JTextField contraseniaTF;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JTextField nombreTF;
+    private javax.swing.JButton registrarB;
     private javax.swing.JTextField validarContraseniaTF;
     // End of variables declaration//GEN-END:variables
 }
