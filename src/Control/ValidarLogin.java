@@ -10,6 +10,7 @@ public class ValidarLogin {
     
     //private Sistema sistema = FramePrincipal.sistema;
     private UsuarioDAO dao = new UsuarioDAO();
+    
     public ValidarLogin(){    
     }
     
@@ -28,7 +29,7 @@ public class ValidarLogin {
             }
         }*/
         if(dao.leer(usuario)!=null){
-            return("Bienvenido");
+            return ("Bienvenido");
         }
         return ("Datos incorrectos");
     }

@@ -37,7 +37,8 @@ public class RegistrarUsuario {
 
         usuarios.add(usuario);
         sistema.setUsuarios(usuarios);
-        return("Usuario " + usuario.getNombre() +" Registrado con exito");
+        //return("Usuario " + usuario.getNombre() +" Registrado con exito");
+        return("Usuario Registrado con exito");
     }
     
     public boolean verificarLongitudNombre(String password) {
